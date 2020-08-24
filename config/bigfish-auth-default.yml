@@ -6,3 +6,16 @@ spring:
       username: sa
       password: sa
       driver-class-name: org.h2.Driver
+bigfish:
+  auth:
+    initial:
+      clients:
+        - clientId: root
+          clientSecret: root
+          passwordSupported: true
+          clientCredentialsSupported: true
+          authorizationCodeSupported: true
+          implicitSupported: true
+          refreshTokenSupported: true
+          accessTokenValiditySeconds: 6000000
+          refreshTokenValiditySeconds: 6000000

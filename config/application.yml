@@ -8,6 +8,8 @@ bigfish:
       password: root
     api:
       jwkSetUri: http://bigfish.auth:8080/.well-known/jwks.json
+      antPatterns:
+        - "/api/**"
 
 spring:
   boot:
