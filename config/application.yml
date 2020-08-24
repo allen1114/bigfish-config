@@ -1,3 +1,56 @@
 bigfish:
-  config:
-    enabled: true
+  security:
+    swagger:
+      username: root
+      password: root
+    actuator:
+      username: root
+      password: root
+    api:
+      jwkSetUri: http://bigfish.auth:8080/.well-known/jwks.json
+
+spring:
+  boot:
+    admin:
+      client:
+        username: root
+        password: root
+        instance:
+          metadata:
+            user.name: ${zkztch.dms.security.actuator.username}
+            user.password: ${zkztch.dms.security.actuator.password}
+  sleuth:
+    sampler:
+      probability: 1.0
+    messaging:
+      kafka:
+        enabled: true
+  zipkin:
+    sender:
+      type: kafka
+    kafka:
+      topic: zipkin
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  http:
+    encoding:
+      enabled: true
+      force: true
+      charset: UTF-8
+  kafka:
+    consumer:
+      group-id: ${spring.application.name}
+      auto-offset-reset: earliest
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    bootstrap-servers: broker1:9092,broker2:9092,broker3:9092
+  redis:
+    host: redis
+    port: 6379
