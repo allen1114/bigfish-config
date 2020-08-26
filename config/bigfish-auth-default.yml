@@ -1,7 +1,12 @@
 spring:
   datasource:
-    druid:
-      enable: true
-      url: jdbc:mysql://mysql:3306/bigfish_auth?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE
-      username: root
-      password: root
+    url: jdbc:mysql://mysql:3306/bigfish_auth?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+#    druid:
+#      enable: true
+#      url: jdbc:mysql://mysql:3306/bigfish_auth?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE
+#      username: root
+#      password: root
+
